@@ -1,0 +1,24 @@
+<nav class="navbar sticky-top t-0 navbar-expand-lg py-1 navbar-dark bg-dark bg-opacity-75">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Local Crafts</a>
+      <button class="navbar-toggler py-0 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/crafts">Crafts</a>
+          <a class="nav-link" href="/crafts/add">Add Listing</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <% if(!currentUser) { %>
+          <a class="nav-link" href="/login">Sign In</a>
+          <a class="nav-link" href="/register">Sign Up</a>
+          <% } else {%>
+          <a href="#" class="nav-link">&#10075; <%= currentUser.username %> &#10076;</a>
+          <a class="nav-link" href="/logout">Logout</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+</nav>

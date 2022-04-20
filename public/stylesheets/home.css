@@ -1,0 +1,47 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://source.unsplash.com/collection/2580789');
+    background-size: cover;
+
+}
+
+.cover-container{
+    max-width: 85vw;
+}
+
+.nav-link{
+    padding: 0.25rem 0.25rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    margin-left: 1rem;
+    border-radius: 30%;
+}
+.nav-link:hover{
+    border-bottom: 0.25rem solid rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.2);
+    color: aliceblue;
+}
+
+#user{
+padding: .5rem 0;
+}
+.user-link{
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+}
+header{
+    justify-content: center;
+}
+header p{
+    max-width: 75ch;
+    align-self: center;
+    margin: 1em auto 1em;
+    padding: 0 auto;
+}
+
+.footer-text
+{
+    color: rgba(255,255,255,0.7);
+    text-shadow: 1px 2px rgba(9, 136, 186, 0.8);
+}

@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate') %>
+    <main class="row">
+        
+        <h1 class="text-center">Edit Listing</h1>
+    <div class="col-6 offset-3">
+        <form action="/craft/<%=craft._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+        <div class="mb-2">
+            <label class="form-label" for="craftName">Craft Name</label>
+            <input class="form-control" type="text" id="craftName" name="crafts[craftName]" value="<%=craft.craftName%>" required/>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <label class="form-label for="price">Price</label>
+        <div class="mb-2">
+            <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input class="form-control" type="text" id="price" name="crafts[price]" placeholder="0" value="<%=craft.price%>" required/>
+                <span class="input-group-text">.00</span>
+            </div>
+        </div>
+        <!-- Image Uploads/Del -->
+        <div class="custom-file input-group mb-2">
+            <label for="img" class="input-group-text">&#10064;</label>
+            <input class="custom-file-input form-control" type="file" id="img" name="image" multiple/>
+            <label class="custom-file-label bg-success p-2 text-dark bg-opacity-25 rounded-bottom" for="img"></label>          
+        </div>
+        <div class="d-flex flex-wrap align-items-top mb-2">
+            <% craft.images.forEach(function (img, i) {%>
+                <div class="border border-secondary">
+                    <div class="flex-shrink-2">
+                        <img src="<%=img.thumbnail%>" class="img-thumbnail img-fluid" alt="">                
+                    </div>
+                    <div class="">
+                        <div class="flex-grow-1 ms-2 me-2">
+                            <input class="btn-check" type="checkbox" id="img-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                            <label class="btn btn-outline-danger btn-sm mt-1" for="img-<%=i%>">Delete</label>
+                        </div>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+        <div class="input-group mb-2">
+            <span class="input-group-text" for="desc">Description</span>         
+            <textarea class="form-control" id="desc" name="crafts[description]" required><%=craft.description%></textarea>
+        </div>
+        <div class="mb-2">
+            <label for="loc">Location</label>
+            <input class="form-control" type="text" id="loc" name="crafts[location]" value="<%=craft.location%>" required/>
+        </div>
+        <button class="btn btn-success mb-3">Update</button> 
+        <a href="/craft/<%=craft._id%>">Cancel</a>           
+
+        </form>
+    </div>
+</main>
+<section class="col-6 offset-6">
+    <a href="/crafts">Crafts</a>
+</section>
